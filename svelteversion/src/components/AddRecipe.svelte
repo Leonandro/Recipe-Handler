@@ -1,0 +1,25 @@
+<script>
+    import { createEventDispatcher } from "svelte";
+
+    const dispatch = createEventDispatcher();
+
+    const addNew = () => {
+        dispatch("addrecipe")
+    }
+</script>
+
+<style>
+    .AddRecipeCard {
+        margin: 3.5%;
+        border: 2px solid;
+        border-color: #4834d4;
+        border-radius: 4px;
+        width: 30%;
+        padding: 3%;
+        text-align: center;
+    }
+</style>
+
+<div class="AddRecipeCard" on:click={addNew}>
+    Add
+</div>

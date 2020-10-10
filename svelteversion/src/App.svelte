@@ -1,30 +1,64 @@
 <script>
-	export let name;
+	import Header from './components/Header.svelte'
+	import AddRecipe from './components/AddRecipe.svelte'
+	import SearchRecipe from './components/SearchRecipe.svelte'
+	import ListRecipes from './components/ListRecipes.svelte'
+
+	let recipes = [{
+						id: 1,
+						name: 'Ensopado de galinha'  
+						},
+						{
+						id: 2,
+						name: 'Risoto'
+						},
+						{
+						id: 3,
+						name: 'strogonoff'
+					}]
+	
+	const handleNewRecipe = () => {
+		var value = prompt('Digite a nova receita');
+
+		if(value){
+			recipes = [...recipes, {id: 4, name: value}];
+		}
+
+  }
 </script>
 
-<main>
-	<h1>Hello {name}!</h1>
-	<p>Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p>
-</main>
-
 <style>
-	main {
-		text-align: center;
-		padding: 1em;
-		max-width: 240px;
-		margin: 0 auto;
+
+	#principal {
+		display: flex;
+		flex-direction: column;
 	}
 
-	h1 {
-		color: #ff3e00;
-		text-transform: uppercase;
-		font-size: 4em;
-		font-weight: 100;
+	#card {
+		display: flex; 
+    	flex-direction: row;
+    	justify-content: center;
+    	align-items: center;
 	}
 
-	@media (min-width: 640px) {
-		main {
-			max-width: none;
-		}
+	#ListContent {
+		display: flex; 
+		flex-direction: column; 
+		justify-content: center; 
+		align-items: center;
 	}
+
 </style>
+
+<div id="principal">
+	<Header />
+	<div id="card">
+		<AddRecipe on:addrecipe={handleNewRecipe}/>
+		<SearchRecipe />
+	</div>
+
+	<div id="ListContent">
+		<h2>Receitas já adicionadas</h2>
+		<ListRecipes data={recipes}/>
+	</div>
+</div>

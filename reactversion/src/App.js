@@ -26,9 +26,6 @@ const App = () => {
     if(value){
       setRecipes([...recipes, {id: 4, name: value}]);
     }
-    else {
-      alert('você não digitou uma receita');
-    }
   }
 
   return (

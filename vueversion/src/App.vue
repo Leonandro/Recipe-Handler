@@ -55,9 +55,15 @@ export default {
 </script>
 
 <style>
+  html, body {
+    margin: 0px !important;
+    padding: 0px !important;
+  }
+
   #app {
-  display: flex;
-  flex-direction: column;
+    display: flex;
+    flex-direction: column;
+    
   }
 
   #Card{

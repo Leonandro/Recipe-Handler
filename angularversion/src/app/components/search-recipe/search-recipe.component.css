@@ -1,0 +1,10 @@
+.CustomCard {
+    margin-left: 3.5%;
+    margin-right: 3.5%;
+    margin-top: 3.5%;
+    margin-bottom: 3.5%;
+    border: 2px solid;
+    border-color:  #4834d4;
+    border-radius: 4px;
+    padding: 50%;
+}

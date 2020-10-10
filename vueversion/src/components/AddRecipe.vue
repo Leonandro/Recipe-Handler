@@ -19,9 +19,6 @@ export default {
                 }
                 this.$emit('add-Recipe', newRecipe);
             }
-            else {
-                alert('você não digitou uma receita');
-            }
         }
     }
 }
