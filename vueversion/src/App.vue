@@ -1,28 +1,77 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <Header/>
+    <div id="Card"> 
+      <AddRecipe v-on:add-Recipe="addNewRecipe"/>
+      <SearchRecipe/>
+    </div>
+    <div id="ListContent">
+      <h2>Receitas já adicionadas</h2>
+      <ListRecipes v-bind:recipes = "recipes"/>
+    </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Header from './components/Header'
+import AddRecipe from './components/AddRecipe'
+import SearchRecipe from './components/SearchRecipe'
+import ListRecipes from './components/ListRecipes'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    Header,
+    AddRecipe,
+    SearchRecipe, 
+    ListRecipes
+  },
+
+  data() {
+    return {
+      recipes: [
+          {
+            id: 1,
+            name: 'Ensopado de galinha'  
+          },
+          {
+            id: 2,
+            name: 'Risoto'
+          },
+          {
+            id: 3,
+            name: 'strogonoff'
+          }
+      ]
+    }
+  },
+
+  methods: {
+    addNewRecipe (newRecipe) {
+      this.recipes = [...this.recipes, newRecipe];
+    }
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+  #app {
+  display: flex;
+  flex-direction: column;
+  }
+
+  #Card{
+    display: flex; 
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #ListContent {
+    display: flex; 
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
 </style>

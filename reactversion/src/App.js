@@ -8,12 +8,15 @@ import SearchRecipe from './components/SearchRecipe';
 const App = () => {
 
   const [recipes, setRecipes] = useState([{
+                                            id: 1,
                                             name: 'Ensopado de galinha'  
                                           },
                                           {
+                                            id: 2,
                                             name: 'Risoto'
                                           },
                                           {
+                                            id: 3,
                                             name: 'strogonoff'
                                           }]);
 
@@ -21,7 +24,7 @@ const App = () => {
     var value = prompt('Digite a nova receita');
 
     if(value){
-      setRecipes([...recipes, {name: value}]);
+      setRecipes([...recipes, {id: 4, name: value}]);
     }
     else {
       alert('você não digitou uma receita');
