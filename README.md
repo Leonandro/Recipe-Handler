@@ -5,4 +5,8 @@ Um gerenciador prático para suas receitas, permitindo **Cadastrar/Editar** e **
 
 # How to use:
   ## React:
-    `cd angularversion`
+    `$cd reactversion
+     $npm install
+     $npm start
+    `
+    *Obs* - o segundo comando só é necessário se você não tiver todos os módulos que o projeto utiliza
