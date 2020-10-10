@@ -9,4 +9,4 @@ Um gerenciador prático para suas receitas, permitindo **Cadastrar/Editar** e **
        $npm install
        $npm start
       `
-      **Obs** - o segundo comando só é necessário se você não tiver todos os módulos que o projeto utiliza
+      *Obs* - o segundo comando só é necessário se você não tiver todos os módulos que o projeto utiliza
