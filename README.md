@@ -3,9 +3,7 @@
 Um gerenciador prático para suas receitas, permitindo **Cadastrar/Editar** e **Pesquisar** por receitas via Edanam API
 
 ## Primeira Unidade
-
-**Tecnologias implentadas com sucesso até agora: (React, Vue e Svelte)**
-Componentes pai e componente filho (check)
+Componentes pais e componentes filhos (check)
 Passagem de parâmetros (Lista de receitas para o componente 'ListRecipes')
 Eventos (Onclik no componente 'AddRecipe' para adicionar uma nova receita na lista)
 
