@@ -1,7 +1,25 @@
-<div class="principal">
+<style>
+  #pricipalPage {
+    display: flex;
+    flex-direction: column;
+  }
+
+  #principalCard {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+
+</style>
+
+
+
+
+<div id="principalPage">
   <app-header></app-header>
-  <div class="card">
+  <div id="principalCard">
     <app-add-recipe></app-add-recipe>
-    <app-search-recipe></app-search-recipe>
   </div>
 </div>
+
