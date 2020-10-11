@@ -1,0 +1,15 @@
+<style>
+    #CustomCard {
+        border: 2px solid;
+        border-color: black;
+        border-radius: 4px;
+        margin: 1%;
+        text-align: center;
+    }
+</style>
+
+<div *ngFor="let item of Data">
+   <div id="CustomCard">
+       {{item.name}}
+   </div>
+</div>

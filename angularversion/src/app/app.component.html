@@ -11,7 +11,43 @@
     align-items: center;
   }
 
+  #ListContent {
+    display: flex; 
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  app-add-recipe {
+        margin: 3.5%;
+        border: 2px solid;
+        border-color: #4834d4;
+        border-radius: 4px;
+        width: 30%;
+        padding: 3%;
+        text-align: center;
+    }
+  
+    app-search-recipe {
+      margin: 3.5%;
+        border: 2px solid;
+        border-color: #eb4d4b;
+        border-radius: 4px;
+        width: 30%;
+        padding: 3%;
+        text-align: center;
+    }
+
+    app-list-recipes {
+      border: 2px solid;
+      border-color: black;
+      width: 77%;
+      border-radius: 4px;
+      padding: 1.2%;
+    }
+
 </style>
+
 
 
 
@@ -19,7 +55,12 @@
 <div id="principalPage">
   <app-header></app-header>
   <div id="principalCard">
-    <app-add-recipe></app-add-recipe>
+    <app-add-recipe (click)="handleNewRecipe()"></app-add-recipe>
+    <app-search-recipe></app-search-recipe>
+  </div>
+  <div id="ListContent">
+    <h2>Receitas Já adicionadas</h2>
+    <app-list-recipes [Data] = "recipes"></app-list-recipes>
   </div>
 </div>
 
