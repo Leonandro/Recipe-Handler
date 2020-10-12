@@ -1,30 +1,41 @@
-import React, { useState }  from 'react';
+import React, { useState, useEffect }  from 'react';
 import './App.css';
 import Header from './components/Header';
 import ListRecipes from './components/ListRecipes';
 import AddRecipe from './components/AddRecipe';
 import SearchRecipe from './components/SearchRecipe';
+import {db} from './firebase'
 
 const App = () => {
 
-  const [recipes, setRecipes] = useState([{
-                                            id: 1,
-                                            name: 'Ensopado de galinha'  
-                                          },
-                                          {
-                                            id: 2,
-                                            name: 'Risoto'
-                                          },
-                                          {
-                                            id: 3,
-                                            name: 'strogonoff'
-                                          }]);
+  const [recipes, setRecipes] = useState([]);
+
+  const renderData = async () => {
+    const snapshot = await db.collection("recipes").get();
+      const loadingData = [];
+      snapshot.forEach((doc) => {
+        loadingData.push({
+          id: doc.id,
+          ...doc.data(),
+        });
+      });
+      setRecipes(loadingData);
+      //console.log(recipes); 
+  }
+
+  useEffect(renderData, []);
+  
 
   const handleNewRecipe = () => {
     var value = prompt('Digite a nova receita');
 
     if(value){
-      setRecipes([...recipes, {id: 4, name: value}]);
+      db.collection("recipes").add({
+        name: value,
+        calorias: 0
+      })
+
+      renderData();
     }
   }
 
