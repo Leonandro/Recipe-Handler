@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { async } from '@angular/core/testing';
+import {db} from '../firebase.js'
 
 @Component({
   selector: 'app-root',
@@ -7,26 +9,35 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'angularversion';
-  recipes = [
-    {
-      id: 1,
-      name: 'Ensopado de galinha'  
-    },
-    {
-      id: 2,
-      name: 'Risoto'
-    },
-    {
-      id: 3,
-      name: 'strogonoff'
-    }
-  ]
+  recipes = [];
 
-   handleNewRecipe() {
+  async  renderData() {
+    const snapshot = await db.collection("recipes").get();
+      const loadingData = [];
+      snapshot.forEach((doc) => {
+        loadingData.push({
+          id: doc.id,
+          ...doc.data(),
+        });
+      });
+      this.recipes = loadingData;
+  };
+
+  async handleNewRecipe() {
     var value = prompt('Digite a nova receita');
 
     if(value){
-      this.recipes = [...this.recipes, {id: 4, name: value}];
+      await db.collection("recipes").add({
+        name: value,
+        calorias: 0
+      })
+
+      this.renderData();
+      //this.recipes = [...this.recipes, {id: 4, name: value}];
     }
+  }
+
+  ngOnInit(): void {
+    this.renderData();
   }
 }
