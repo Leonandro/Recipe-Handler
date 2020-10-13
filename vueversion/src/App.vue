@@ -17,6 +17,7 @@ import Header from './components/Header'
 import AddRecipe from './components/AddRecipe'
 import SearchRecipe from './components/SearchRecipe'
 import ListRecipes from './components/ListRecipes'
+import {db} from './firebase'
 
 export default {
   name: 'App',
@@ -29,27 +30,35 @@ export default {
 
   data() {
     return {
-      recipes: [
-          {
-            id: 1,
-            name: 'Ensopado de galinha'  
-          },
-          {
-            id: 2,
-            name: 'Risoto'
-          },
-          {
-            id: 3,
-            name: 'strogonoff'
-          }
-      ]
+      recipes: []
     }
   },
 
   methods: {
-    addNewRecipe (newRecipe) {
-      this.recipes = [...this.recipes, newRecipe];
+    renderData: async function (){
+    const snapshot = await db.collection("recipes").get();
+      const loadingData = [];
+      snapshot.forEach((doc) => {
+        loadingData.push({
+          id: doc.id,
+          ...doc.data(),
+        });
+      });
+      this.recipes = loadingData;
+    },
+
+    addNewRecipe: async function (newRecipe) {
+      await db.collection("recipes").add({
+        name: newRecipe.name,
+        calorias: newRecipe.calorias
+      })
+      this.renderData();
+      //this.recipes = [...this.recipes, newRecipe];
     }
+  },
+
+  mounted: async function() {
+    this.renderData();
   }
 }
 </script>

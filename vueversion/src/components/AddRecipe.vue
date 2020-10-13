@@ -14,8 +14,8 @@ export default {
 
             if(value){
                 const newRecipe = {
-                    id: 4,
-                    name: value
+                    name: value,
+                    calorias: 0
                 }
                 this.$emit('add-Recipe', newRecipe);
             }
