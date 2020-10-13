@@ -1,27 +1,41 @@
 <script>
+	import { onMount } from 'svelte';
 	import Header from './components/Header.svelte'
 	import AddRecipe from './components/AddRecipe.svelte'
 	import SearchRecipe from './components/SearchRecipe.svelte'
 	import ListRecipes from './components/ListRecipes.svelte'
+	import {db} from './firebase.js'
 
-	let recipes = [{
-						id: 1,
-						name: 'Ensopado de galinha'  
-						},
-						{
-						id: 2,
-						name: 'Risoto'
-						},
-						{
-						id: 3,
-						name: 'strogonoff'
-					}]
-	
-	const handleNewRecipe = () => {
+	let recipes = [];
+
+	const renderData = async () => {
+		const snapshot = await db.collection("recipes").get();
+		const loadingData = [];
+		snapshot.forEach((doc) => {
+			loadingData.push({
+			id: doc.id,
+			...doc.data(),
+			});
+		});
+		recipes = loadingData; 
+	}
+	  
+	onMount( () => {
+		renderData();
+	});
+
+	const handleNewRecipe = async () => {
 		var value = prompt('Digite a nova receita');
 
 		if(value){
-			recipes = [...recipes, {id: 4, name: value}];
+			await db.collection("recipes").add({
+				name: value,
+				calorias: 0
+			})
+
+			renderData();
+
+			//recipes = [...recipes, {id: 4, name: value}];
 		}
 
   }

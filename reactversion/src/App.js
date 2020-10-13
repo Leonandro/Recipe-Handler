@@ -26,11 +26,11 @@ const App = () => {
   useEffect(renderData, []);
   
 
-  const handleNewRecipe = () => {
+  const handleNewRecipe = async () => {
     var value = prompt('Digite a nova receita');
 
     if(value){
-      db.collection("recipes").add({
+      await db.collection("recipes").add({
         name: value,
         calorias: 0
       })
