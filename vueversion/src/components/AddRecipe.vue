@@ -1,5 +1,5 @@
 <template>
-    <div class="AddRecipeCard" @click="addRecipe">
+    <div class="AddRecipeCard" @click="goToAddForm">
         Add
     </div>
 </template>
@@ -9,17 +9,22 @@ export default {
     name: 'AddRecipe',
     methods: {
 
-        addRecipe () {
-            var value = prompt('Digite a nova receita');
-
-            if(value){
-                const newRecipe = {
-                    name: value,
-                    calorias: 0
-                }
-                this.$emit('add-Recipe', newRecipe);
-            }
+        goToAddForm () {
+            this.$emit('push-Form')
         }
+
+        //addRecipe () {
+        //    var value = prompt('Digite a nova receita');
+        //
+        //    if(value){
+        //        const newRecipe = {
+        //            name: value,
+        //            calorias: 0
+        //        }
+        //        this.$emit('add-Recipe', newRecipe);
+        //    }
+        //}
+
     }
 }
 </script>

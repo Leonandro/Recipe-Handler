@@ -1,0 +1,103 @@
+
+
+<div>
+    <app-header></app-header>
+    <div id="container">
+        <p id="formTitle">Please, input your recipe</p>
+        <form #recipeForm="ngForm" class="form__body" [(ngModel)]="formStatus" (submit)="submit()">
+            <div class="form__group">
+                <label class="form__label">Type the name of your recipe</label>
+                <input class="form__input" 
+                    ngModel 
+                    required
+                    minlength="3"
+                    name="recipeName"
+                    #recipeName="ngModel"
+                    >
+                    <div class="error" *ngIf="recipeName.invalid && recipeName.dirty && recipeName.errors.minlength">
+                        The name of the recipe must have at least 3 letters</div>
+                    <div class="error" *ngIf="recipeName.dirty && recipeName.errors.required">
+                        The name of the recipe is required</div>
+                
+            </div>
+
+            <div class="form__group">
+                <label class="form__label">Type the amount of the carbohydrates</label>
+                <input class="form__input" #recipeCalories="ngModel" 
+                    name="recipeClories" [(ngModel)]="recipeToBeAdded.calories">
+                
+            </div>
+
+            <div class="form__group">
+                <label class="form__label">Type how to do this recipe</label>
+                <input class="form__input"
+                    ngModel                     
+                    required
+                    minlength="10"
+                    name="recipe" 
+                    #recipe="ngModel"
+                    >
+                    <div class="error" *ngIf="recipe.invalid && recipe.dirty && recipe.errors.minlength">
+                        The recipe must have at least 10 letters</div>
+                    <div class="error" *ngIf="recipe.dirty && recipe.errors.required">
+                        The name of the recipe is required</div>
+                
+            </div>
+
+            <div class="btn__container">
+                <button class="button" type="submit"  >Submit!</button>
+            </div>
+
+           
+        </form>
+    </div>
+</div>
+
+<style>
+    #container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #formTitle {
+        font-size: 2em;
+        font-weight: bold;
+    }
+
+    .form__body {
+    width: 60%;
+    }
+
+
+    .form__group{
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 10%;
+    }
+
+    .form__label {
+        align-self: center;
+    }
+
+    .form__input {
+        border: 2px solid;
+        padding-left: 3%;
+        padding-bottom: 1%;
+        padding-top: 1%;
+        border-radius: 5px;
+    }
+
+    .error {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: red;
+  }
+
+  .btn__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+</style>

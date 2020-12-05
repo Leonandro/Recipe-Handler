@@ -7,4 +7,5 @@ export const CustomHeader = styled.header`
     align-items: center;
     padding: 1.2%;
     color: #30336b;
+    width: 100%
 `
