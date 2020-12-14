@@ -5,45 +5,20 @@ import Header from '../components/Header';
 import ListRecipes from '../components/ListRecipes';
 import AddRecipe from '../components/AddRecipe';
 import SearchRecipe from '../components/SearchRecipe';
+import useRecipes from '../components/recipesHook';
 import {db} from '../firebase'
 
 const Home = () => {
 
-  const [recipes, setRecipes] = useState([]);
+  const { recipes, renderData, handleNewRecipe } = useRecipes();
 
   const history = useHistory();
 
-  const renderData = async () => {
-    const snapshot = await db.collection("recipes").get();
-      const loadingData = [];
-      snapshot.forEach((doc) => {
-        loadingData.push({
-          id: doc.id,
-          ...doc.data(),
-        });
-      });
-      setRecipes(loadingData);
-      //console.log(recipes); 
-  }
-
   useEffect(renderData, []);
-  
 
-  const handleNewRecipe = async () => {
-    var value = prompt('Digite a nova receita');
-
-    if(value){
-      await db.collection("recipes").add({
-        name: value,
-        calorias: 0
-      })
-
-      renderData();
-    }
-  }
 
   function goToAddForm () {
-      history.replace("/addrecipeform");
+      history.push("/addrecipeform");
   }
 
   return (

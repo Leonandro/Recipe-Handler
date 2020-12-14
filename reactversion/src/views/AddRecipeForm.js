@@ -46,7 +46,7 @@ export default function AddRecipeForm() {
                         </div>
 
                         <div id="form-group-3">
-                            <label id="form__label-3">Type the name of your recipe</label>
+                            <label id="form__label-3">Type how to do this recipe</label>
                             <input id="form__input-3" name="recipeText"  onChange={handleChange} onBlur={handleBlur} value={values.recipeText} />
                             <div id="error-3">{(errors.recipeText && touched.recipeText) ? errors.recipeText : null} </div>
                         </div>
