@@ -4,7 +4,7 @@
     <app-header></app-header>
     <div id="container">
         <p id="formTitle">Please, input your recipe</p>
-        <form #recipeForm="ngForm" class="form__body" [(ngModel)]="formStatus" (submit)="submit()">
+        <form #recipeForm="ngForm" class="form__body" [(ngModel)]="formStatus" (submit)="submit(recipeName, recipe)">
             <div class="form__group">
                 <label class="form__label">Type the name of your recipe</label>
                 <input class="form__input" 
