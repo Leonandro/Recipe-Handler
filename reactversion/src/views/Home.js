@@ -30,7 +30,7 @@ const Home = () => {
       </div>
 
       <div style={{display: "flex", flexDirection: "column", justifyContent: 'center', alignItems: 'center'}}>
-        <h2>Receitas já adicionadas</h2>
+        <h2>Below, we show all the recipes we found in your kitchen.</h2>
         <ListRecipes data={recipes}/>
       </div>
     </HomeContainer>
