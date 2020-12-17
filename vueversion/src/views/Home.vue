@@ -18,8 +18,9 @@
     import AddRecipe from '../components/AddRecipe'
     import SearchRecipe from '../components/SearchRecipe'
     import ListRecipes from '../components/ListRecipes'
-    import {db} from '../firebase'
+   
     import router from '../router/index'
+    import { mapGetters, mapActions } from 'vuex'
 
     export default {
     name: 'Home',
@@ -30,33 +31,18 @@
         ListRecipes
     },
 
-    data() {
-        return {
-        recipes: []
-        }
+    computed: {
+      ...mapGetters({
+      recipes: 'recipes'
+    })
     },
 
     methods: {
-        renderData: async function (){
-        const snapshot = await db.collection("recipes").get();
-        const loadingData = [];
-        snapshot.forEach((doc) => {
-            loadingData.push({
-            id: doc.id,
-            ...doc.data(),
-            });
-        });
-        this.recipes = loadingData;
-        },
+      ...mapActions ({
+        renderData: 'renderData',
+        addNewRecipe: 'addNewRecipe'
+      }),
 
-        addNewRecipe: async function (newRecipe) {
-            await db.collection("recipes").add({
-                name: newRecipe.name,
-                calorias: newRecipe.calorias
-            })
-            this.renderData();
-            //this.recipes = [...this.recipes, newRecipe];
-        },
 
         navTest () {
             router.push('/add-recipe-form')
@@ -64,7 +50,7 @@
     },
 
     mounted: async function() {
-        this.renderData();
+      await this.renderData();
     }
     
     }
