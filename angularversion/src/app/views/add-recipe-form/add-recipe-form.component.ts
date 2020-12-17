@@ -1,11 +1,14 @@
 import { Component, OnInit } from '@angular/core';
+import { RecipesHookService } from '../../components/recipes-hook.service';
 
 @Component({
   selector: 'app-add-recipe-form',
   templateUrl: './add-recipe-form.component.html',
   styleUrls: ['./add-recipe-form.component.css']
 })
-export class AddRecipeFormComponent implements OnInit {
+export class AddRecipeFormComponent implements OnInit { 
+
+  constructor(public recipeService: RecipesHookService) {}
 
   recipeToBeAdded = {name: '', calories: null, recipe: ''};
 
@@ -15,35 +18,21 @@ export class AddRecipeFormComponent implements OnInit {
 
 
 
-  submit(name, recipe) {
-
-
+  submit(name, calories, recipe) {
+    
     if(name.control.valid && recipe.control.valid) {
-      alert('good submit')
-    }
-
-    else {
-      alert('bad submit')
-      alert(recipe.errors.required)
+      this.recipeService.handleNewRecipe({
+        name: name.control.value,
+        calorias: calories.control.value,
+        recipe: recipe.control.value
+      })
     }
 
     
-    //alert(recipeName.dirty);
-    //recipeName.dirty = true;
-    //this.$v.$touch()
-    //if (this.formStatus.invalid) {
-    //  this.submitStatus = 'ERROR'
-    //} else {
-      // do your submit logic here
-     // this.submitStatus = 'PENDING'
-     // setTimeout(() => {
-     //   this.submitStatus = 'OK'
-     // }, 500)
-    //}
   }
 
 
-  constructor() { }
+  
 
   ngOnInit(): void {
   }

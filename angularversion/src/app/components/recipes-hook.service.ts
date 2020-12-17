@@ -23,16 +23,18 @@ export class RecipesHookService {
       this.recipes = loadingData;
   };
 
-  async handleNewRecipe() {
-    var value = prompt('Digite a nova receita');
+  async handleNewRecipe(newRecipe) {
 
-    if(value){
+    if(newRecipe.name && newRecipe.recipe){
       await db.collection("recipes").add({
-        name: value,
-        calorias: 0
-      })
+        name: newRecipe.name,
+        calorias: newRecipe.calorias,
+        recipe: newRecipe.recipe
+    })
+
 
       this.renderData();
+      alert('Nova receita cadastrada')
       //this.recipes = [...this.recipes, {id: 4, name: value}];
     }
   }

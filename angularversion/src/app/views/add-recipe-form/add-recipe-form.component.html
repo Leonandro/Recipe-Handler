@@ -3,7 +3,7 @@
 <div>
     <div id="container">
         <p id="formTitle">Please, input your recipe</p>
-        <form #recipeForm="ngForm" class="form__body" [(ngModel)]="formStatus" (submit)="submit(recipeName, recipe)">
+        <form #recipeForm="ngForm" class="form__body" [(ngModel)]="formStatus" (submit)="submit(recipeName, recipeCalories, recipe)">
             <div class="form__group">
                 <label class="form__label">Type the name of your recipe</label>
                 <input class="form__input" placeholder="Ex: 10 Thousand Labels Cake"
@@ -23,7 +23,7 @@
             <div class="form__group">
                 <label class="form__label">Type the amount of the carbohydrates</label>
                 <input class="form__input" #recipeCalories="ngModel" placeholder="Ex: 10000"
-                    name="recipeClories" [(ngModel)]="recipeToBeAdded.calories">
+                    name="recipeCalories" [(ngModel)]="recipeToBeAdded.calories">
                 
             </div>
 
@@ -38,8 +38,8 @@
                     >
                     <div class="error" *ngIf="recipe.invalid && recipe.dirty && recipe.errors.minlength">
                         The recipe must have at least 10 letters</div>
-                    <div class="error" *ngIf="recipe.dirty && recipe.errors.required">
-                        The name of the recipe is required</div>
+                    <div class="error" *ngIf="recipe.invalid  && recipe.dirty && recipe.errors.required">
+                        The  recipe is required</div>
                 
             </div>
 
