@@ -10,6 +10,10 @@ export const AddRecipeCard = styled.header`
     border-radius: 4px;
     width: 30%;
     padding: 0.4%;
+
+    &:hover {
+      background-color: #A3CB38;
+    }
 `
 
 export const AddRecipeButton = styled.header`
@@ -24,6 +28,10 @@ export const AddRecipeButton = styled.header`
     height: 100%;
     width: 100%;
     cursor: pointer;
+
+    &:hover {
+      background-color: white;
+    }
 `
 
 export const AddIcon = styled.img.attrs(() => ({

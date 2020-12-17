@@ -7,7 +7,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup";
 import { Formik } from 'formik';
 
-export default function AddRecipeForm() {
+export default function AddRecipeForm() { 
 
     const schema = yup.object().shape({
         recipeName: yup.string().required('The name of the recipe is required').min(3, 'The name of the recipe must have at least 3 letters'),
@@ -20,7 +20,7 @@ export default function AddRecipeForm() {
   return (
    
     <AddRecipeFormContainer>
-        <Header/>
+       
         <div id="form__body">
 
             <Formik initialValues={{recipeName: '', recipeCalories: null, recipeText: ''}}
@@ -36,18 +36,18 @@ export default function AddRecipeForm() {
                         <p id="formTitle">Please, input your recipe</p>
                         <div id="form-group-1">
                             <label id="form__label-1">Type the name of your recipe</label>
-                            <input id="form__input-1" name="recipeName"  onChange={handleChange} onBlur={handleBlur} value={values.recipeName} />
+                            <input id="form__input-1" name="recipeName" placeholder="Ex: 10 Thousand Labels Cake"  onChange={handleChange} onBlur={handleBlur} value={values.recipeName} />
                             <div id="error-1">{(errors.recipeName && touched.recipeName) ? errors.recipeName : null} </div>
                         </div>
 
                         <div id="form-group-2">
                             <label id="form__label-2">Type the amount of the carbohydrates</label>
-                            <input id="form__input-2" name="recipeCalories"  value={values.recipeCalories} />
+                            <input id="form__input-2" name="recipeCalories" placeholder="Ex: 10000" value={values.recipeCalories} />
                         </div>
 
                         <div id="form-group-3">
                             <label id="form__label-3">Type how to do this recipe</label>
-                            <input id="form__input-3" name="recipeText"  onChange={handleChange} onBlur={handleBlur} value={values.recipeText} />
+                            <input id="form__input-3" name="recipeText" placeholder="Ex: Boil 350ml of water, put the lamen inside, wait 3 minutes then, season."  onChange={handleChange} onBlur={handleBlur} value={values.recipeText} />
                             <div id="error-3">{(errors.recipeText && touched.recipeText) ? errors.recipeText : null} </div>
                         </div>
 

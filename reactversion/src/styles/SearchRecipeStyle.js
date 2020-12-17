@@ -11,6 +11,10 @@ export const SearchRecipeCard = styled.header`
     border-radius: 4px;
     width: 30%;
     padding: 0.4%;
+
+    &:hover {
+      background-color: #1289A7;
+    }
 `
 
 export const SearchRecipeButton = styled.header`
@@ -25,6 +29,10 @@ export const SearchRecipeButton = styled.header`
     height: 100%;
     width: 100%;
     cursor: pointer;
+
+    &:hover {
+      background-color: white;
+    }
 `
 
 export const SearchIcon = styled.img.attrs(() => ({

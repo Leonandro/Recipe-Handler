@@ -1,6 +1,6 @@
 <template>
     <div class="AddRecipeCard" @click="goToAddForm">
-        Add
+       <div class="AddRecipeButton">ADD <img :src="require(`../assets/Plus.svg`)" class="AddIcon" /></div>
     </div>
 </template>
 
@@ -31,12 +31,39 @@ export default {
 
 <style scoped>
     .AddRecipeCard {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
         margin: 3.5%;
         border: 2px solid;
-        border-color: #4834d4;
         border-radius: 4px;
         width: 30%;
-        padding: 3%;
-        text-align: center;
+        padding: 0.4%;
+    }
+
+    .AddRecipeButton {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        border: 2px solid;
+        border-radius: 4px;
+        font-size: 50px;
+        padding: 3%;    
+        height: 100%;
+        width: 100%;
+        cursor: pointer;
+    }
+
+    .AddRecipeButton:hover {
+        background-color: white;
+    }
+
+    .AddRecipeCard:hover {
+        background-color: #A3CB38;
+    }
+
+    .AddIcon {
+        margin-left: 3%;
     }
 </style>

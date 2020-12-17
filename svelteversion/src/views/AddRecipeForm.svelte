@@ -60,7 +60,7 @@
 
 
 <div>
-    <Header />    
+      
     <div id="container">
         <p id="formTitle">Please, input your recipe</p>
         <form  class="form__body" on:submit|preventDefault={submit}>

@@ -4,19 +4,18 @@
 
 <style>
     .CustomList {
-        border: 2px solid;
-        border-color: black;
         width: 77%;
-        border-radius: 4px;
-        padding: 1.2%;
     }
 
     .CustomCard {
         border: 2px solid;
         border-color: black;
         border-radius: 4px;
+        padding: 0.6%;
         margin: 1%;
+        font-weight: bold;
         text-align: center;
+        cursor: pointer;
     }
 </style>
 

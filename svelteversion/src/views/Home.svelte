@@ -51,7 +51,7 @@
 	</div>
 
 	<div id="ListContent">
-		<h2>Receitas já adicionadas</h2>
+		<h2>Below, we show all the recipes we found in your kitchen.</h2>
 		<ListRecipes data={$recipes}/>
 	</div>
 </div>

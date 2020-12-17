@@ -12,10 +12,13 @@ export default {
 
 <style scoped>
     .cuco{
-        background-color: #f9ca24;
         font-family: Avenir, Helvetica, Arial, sans-serif;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
         padding: 1.2%;
-        color: #30336b;
-        text-align: center;
+        border-bottom: 3px solid;
+        width: 100%;
+    
     };
 </style>

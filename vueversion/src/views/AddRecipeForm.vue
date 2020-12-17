@@ -1,6 +1,6 @@
 <template>
   <div>
-  <Header />
+ 
   <div class="container">
     <p class="title">Please, input your recipe</P>
     <form @submit.prevent="submit" class="form__body">
@@ -40,7 +40,7 @@
 
 <script>
   import { required, minLength } from 'vuelidate/lib/validators';
-  import Header from '../components/Header.vue';
+  
 
 
   export default {
@@ -82,7 +82,7 @@
     },
 
     components: {
-      Header
+     
     }
   }
 
