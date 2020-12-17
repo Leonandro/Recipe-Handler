@@ -4,10 +4,13 @@ import { useForm } from 'react-hook-form';
 import { AddRecipeFormContainer } from '../styles/AddRecipeFormStyle';
 import Header from '../components/Header';
 import { yupResolver } from '@hookform/resolvers/yup';
+import useRecipes from '../components/recipesHook';
 import * as yup from "yup";
 import { Formik } from 'formik';
 
 export default function AddRecipeForm() { 
+
+    const { handleNewRecipe } = useRecipes();
 
     const schema = yup.object().shape({
         recipeName: yup.string().required('The name of the recipe is required').min(3, 'The name of the recipe must have at least 3 letters'),
@@ -26,7 +29,12 @@ export default function AddRecipeForm() {
             <Formik initialValues={{recipeName: '', recipeCalories: null, recipeText: ''}}
                 validationSchema={schema}
                 onSubmit={(values, actions) => {
-                    alert(JSON.stringify(values))
+                    handleNewRecipe({
+                        recipeName: values.recipeName,
+                        recipeCalories: values.recipeCalories,
+                        recipeText: values.recipeText
+                    })
+                    alert('Nova receita cadastrada')
                 }}
                 >
                 {({values, errors, touched, handleChange, handleBlur, handleSubmit}) => 
@@ -42,7 +50,7 @@ export default function AddRecipeForm() {
 
                         <div id="form-group-2">
                             <label id="form__label-2">Type the amount of the carbohydrates</label>
-                            <input id="form__input-2" name="recipeCalories" placeholder="Ex: 10000" value={values.recipeCalories} />
+                            <input id="form__input-2" name="recipeCalories" inputMode="numeric" placeholder="Ex: 10000" onChange={handleChange} onBlur={handleBlur} value={values.recipeCalories} />
                         </div>
 
                         <div id="form-group-3">

@@ -19,14 +19,14 @@ export default function useRecipes() {
   }
 
   //Add a new recipe on the dataBase
-  const handleNewRecipe = async () => {
-    var value = prompt('Digite a nova receita');
+  const handleNewRecipe = async (newRecipe) => {
 
-    if(value){
+    if(newRecipe){
       await db.collection("recipes").add({
-        name: value,
-        calorias: 0
-      })
+        name: newRecipe.recipeName,
+        calorias: newRecipe.recipeCalories,
+        recipe: newRecipe.recipeText
+    })
 
       renderData();
     }
