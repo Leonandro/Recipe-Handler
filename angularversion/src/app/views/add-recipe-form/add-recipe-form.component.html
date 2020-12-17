@@ -1,13 +1,12 @@
 
 
 <div>
-    <app-header></app-header>
     <div id="container">
         <p id="formTitle">Please, input your recipe</p>
         <form #recipeForm="ngForm" class="form__body" [(ngModel)]="formStatus" (submit)="submit(recipeName, recipe)">
             <div class="form__group">
                 <label class="form__label">Type the name of your recipe</label>
-                <input class="form__input" 
+                <input class="form__input" placeholder="Ex: 10 Thousand Labels Cake"
                     ngModel 
                     required
                     minlength="3"
@@ -23,14 +22,14 @@
 
             <div class="form__group">
                 <label class="form__label">Type the amount of the carbohydrates</label>
-                <input class="form__input" #recipeCalories="ngModel" 
+                <input class="form__input" #recipeCalories="ngModel" placeholder="Ex: 10000"
                     name="recipeClories" [(ngModel)]="recipeToBeAdded.calories">
                 
             </div>
 
             <div class="form__group">
                 <label class="form__label">Type how to do this recipe</label>
-                <input class="form__input"
+                <input class="form__input" placeholder="Ex: Boil 350ml of water, put the lamen inside, wait 3 minutes then, season."
                     ngModel                     
                     required
                     minlength="10"

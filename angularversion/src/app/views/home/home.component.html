@@ -1,11 +1,11 @@
 <div id="principalPage">
     <app-header></app-header>
     <div id="principalCard">
-      <app-add-recipe (click)="goToAddForm()"></app-add-recipe>
-      <app-search-recipe></app-search-recipe>
+      <div id="AddRecipeCard" (click)="goToAddForm()"><app-add-recipe-button></app-add-recipe-button></div>
+      <div id="SearchRecipeCard"><app-search-recipe-button></app-search-recipe-button></div>
     </div>
     <div id="ListContent">
-      <h2>Receitas Já adicionadas</h2>
+      <h2>Below, we show all the recipes we found in your kitchen.</h2>
       <app-list-recipes [Data] = "recipeService.recipes"></app-list-recipes>
     </div>
 </div>
@@ -29,8 +29,8 @@
       justify-content: center;
       align-items: center;
     }
-  
-    app-add-recipe {
+
+    #AddRecipeCard {
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -39,6 +39,62 @@
         border-radius: 4px;
         width: 30%;
         padding: 0.4%;
+    }
+
+    #AddRecipeCard:hover {
+      background-color: #A3CB38;
+    }
+
+    #SearchRecipeCard {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 3.5%;
+        border: 2px solid;
+        border-radius: 4px;
+        width: 30%;
+        padding: 0.4%;
+    }
+
+    #SearchRecipeCard:hover {
+      background-color: #1289A7;
+    }
+  
+    
+    app-add-recipe-button {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        border: 2px solid;
+        border-radius: 4px;
+        font-size: 50px;
+        padding: 3%;    
+        height: 100%;
+        width: 100%;
+        cursor: pointer;
+    }
+
+    app-add-recipe-button:hover {
+      background-color: white;
+    }
+
+    app-search-recipe-button {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        border: 2px solid;
+        border-radius: 4px;
+        font-size: 50px;
+        padding: 3%;    
+        height: 100%;
+        width: 100%;
+        cursor: pointer;
+    }
+
+    app-search-recipe-button:hover {
+      background-color: white;
     }
     
       app-search-recipe {
@@ -52,11 +108,9 @@
       }
   
       app-list-recipes {
-        border: 2px solid;
-        border-color: black;
+       
         width: 77%;
-        border-radius: 4px;
-        padding: 1.2%;
+        
       }
   
   </style>

@@ -9,7 +9,9 @@ import { AddRecipeComponent } from './components/add-recipe/add-recipe.component
 import { SearchRecipeComponent } from './components/search-recipe/search-recipe.component';
 import { ListRecipesComponent } from './components/list-recipes/list-recipes.component';
 import { HomeComponent } from './views/home/home.component'
-import { AddRecipeFormComponent } from './views/add-recipe-form/add-recipe-form.component'
+import { AddRecipeFormComponent } from './views/add-recipe-form/add-recipe-form.component';
+import { AddRecipeButtonComponent } from './components/add-recipe-button/add-recipe-button.component';
+import { SearchRecipeButtonComponent } from './components/search-recipe-button/search-recipe-button.component'
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import { AddRecipeFormComponent } from './views/add-recipe-form/add-recipe-form.
     SearchRecipeComponent,
     ListRecipesComponent,
     HomeComponent,
-    AddRecipeFormComponent
+    AddRecipeFormComponent,
+    AddRecipeButtonComponent,
+    SearchRecipeButtonComponent
   ],
   imports: [
     FormsModule,
