@@ -32,7 +32,8 @@ const store = new Vuex.Store({
         async addNewRecipe (context, newRecipe) {
             await db.collection("recipes").add({
                 name: newRecipe.name,
-                calorias: newRecipe.calorias
+                calorias: newRecipe.calorias,
+                recipe: newRecipe.recipe
             })
             context.dispatch("renderData")
         }

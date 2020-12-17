@@ -29,10 +29,6 @@
         <button class="button" type="submit" :disabled="submitStatus === 'PENDING'">Submit!</button>
       </div>
       
-      
-      <p class="typo__p" v-if="submitStatus === 'OK'">Thanks for your submission!</p>
-      <p class="typo__p" v-if="submitStatus === 'ERROR'">Please fill the form correctly.</p>
-      <p class="typo__p" v-if="submitStatus === 'PENDING'">Sending...</p>
     </form>
   </div>
   </div>
@@ -40,6 +36,7 @@
 
 <script>
   import { required, minLength } from 'vuelidate/lib/validators';
+  import { mapActions } from 'vuex';
   
 
 
@@ -66,17 +63,21 @@
       }
     },
     methods: {
-      submit() {
-        console.log('submit!')
+
+      ...mapActions ({
+        addNewRecipe: 'addNewRecipe'
+      }),
+
+      submit()  {
         this.$v.$touch()
-        if (this.$v.$invalid) {
-          this.submitStatus = 'ERROR'
-        } else {
-          // do your submit logic here
-          this.submitStatus = 'PENDING'
-          setTimeout(() => {
-            this.submitStatus = 'OK'
-          }, 500)
+        
+        if (!this.$v.$invalid) {
+          this.addNewRecipe({
+              name: this.$v.name.$model,
+              calorias: this.calories,
+              recipe: this.$v.recipe.$model
+          });
+          alert('Nova receita cadastrada')
         }
       }
     },
