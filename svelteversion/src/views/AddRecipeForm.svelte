@@ -1,5 +1,9 @@
 <script>
     import Header from '../components/Header.svelte';
+    import { useRecipes } from '../components/recipesHook.js';
+
+    let recipes = useRecipes();
+
 
     let recipeToBeAdded = { name: '', carbohydrates: null, recipe: '' };
     let errors = {  name: '', carbohydrates: '', recipe: ''};
@@ -13,11 +17,10 @@
 
       // add new poll
       if (valid) {
-        console.log('valid');
-      }
-
-      else {
-          console.log('invalid');
+        recipes.handleNewRecipe({name: recipeToBeAdded.name, 
+                                 calorias: recipeToBeAdded.carbohydrates,
+                                recipe: recipeToBeAdded.recipe})
+        alert('Nova receita cadastrada')
       }
     }
 
@@ -74,7 +77,7 @@
 
             <div class="form__group">
                 <label class="form__label">Type the amount of the carbohydrates</label>
-                <input class="form__input" bind:value={recipeToBeAdded.recipe.carbohydrates}>
+                <input class="form__input" bind:value={recipeToBeAdded.carbohydrates}>
                 
             </div>
 

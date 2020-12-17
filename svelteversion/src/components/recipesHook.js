@@ -18,18 +18,16 @@ export function useRecipes() {
     set(loadingData); 
   }
 
-  const handleNewRecipe = async () => {
-    var value = prompt('Digite a nova receita');
-
-    if(value){
-        await db.collection("recipes").add({
-            name: value,
-            calorias: 0
-        })
-
-        renderData();
-
-        
+  const handleNewRecipe = async (newRecipe) => {
+     
+    if(newRecipe){
+      await db.collection("recipes").add({
+        name: newRecipe.name,
+        calorias: newRecipe.calorias,
+        recipe: newRecipe.recipe
+    })
+    
+      renderData();
     }
 
    }
