@@ -4,7 +4,7 @@
     const dispatch = createEventDispatcher();
 
     const addNew = () => {
-        dispatch("addrecipe") 
+        dispatch("addrecipe")  
     }
 </script>
 

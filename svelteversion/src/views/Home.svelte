@@ -9,7 +9,7 @@
 	import { useRecipes } from '../components/recipesHook.js';
 
 	let recipes = useRecipes();
-
+	let hue = 'ang'
 	  
 	onMount( () => {
 		recipes.renderData();
@@ -17,7 +17,12 @@
 
     const goToAddForm =  () => {
         navigate("/addrecipeform")
-    }
+	}
+	
+	const goToSearch =  () => {
+        navigate("/searchrecipepage")
+	}
+	
 </script>
 
 <style>
@@ -47,7 +52,7 @@
 	<Header />
 	<div id="card">
 		<AddRecipe on:addrecipe={goToAddForm}/>
-		<SearchRecipe />
+		<SearchRecipe on:searchrecipe={goToSearch}/>
 	</div>
 
 	<div id="ListContent">

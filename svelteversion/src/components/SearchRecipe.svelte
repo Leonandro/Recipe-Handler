@@ -1,3 +1,13 @@
+<script>
+     import { createEventDispatcher } from "svelte";
+
+    const dispatch = createEventDispatcher();
+
+    const addNew = () => {
+        dispatch("searchrecipe")  
+    }
+</script>
+
 <style>
     .SearchRecipeCard {
         display: flex;
@@ -38,6 +48,6 @@
 
 </style>
 
-<div class="SearchRecipeCard">
+<div class="SearchRecipeCard" on:click={addNew}>
     <div class="SearchRecipeButton">SEARCH <img  src="./icons/Search.svg" alt="Search Icon"  class="SearchIcon" /></div>
 </div>
