@@ -1,7 +1,7 @@
 <template>
     <div class="CustomList">
         <div v-bind:key="recipe.id" v-for="recipe in recipes"> 
-            <div class="CustomCard">
+            <div class="CustomCard" @click="goToViewRecipe(recipe.name)">
                 {{recipe.name}}
             </div>
         </div>
@@ -9,9 +9,16 @@
 </template>
 
 <script>
+import router from '../router/index'
 export default {
     name: 'ListRecipes',
-    props: ["recipes"]
+    props: ["recipes"],
+
+    methods: {
+        goToViewRecipe(recipeName) {
+            router.push({ name: 'viewRecipe', params: { name: recipeName } })
+        }
+    }
 }
 </script>
 
@@ -29,6 +36,10 @@ export default {
         font-weight: bold;
         text-align: center;
         cursor: pointer; 
+    }
+
+    .CustomCard:hover {
+        box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
     }
 
 </style>

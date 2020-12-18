@@ -1,12 +1,18 @@
 <template>
-    <div class="SearchRecipeCard">
+    <div class="SearchRecipeCard" @click="goToSearch">
         <div class="SearchRecipeButton">SEARCH <img :src="require(`../assets/Search.svg`)" class="SearchIcon" /></div>
     </div>
 </template>
 
 <script>
 export default {
-    name: 'SearchRecipe'
+    name: 'SearchRecipe',
+    methods: {
+
+        goToSearch () {
+            this.$emit('push-Search')
+        }
+    }
 }
 </script>
 

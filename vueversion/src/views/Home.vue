@@ -3,7 +3,7 @@
     <Header/>
     <div id="Card"> 
       <AddRecipe v-on:push-Form="navTest"/>
-      <SearchRecipe/>
+      <SearchRecipe v-on:push-Search="goToSearchPage"/>
       
     </div>
     <div id="ListContent">
@@ -46,6 +46,10 @@
 
         navTest () {
             router.push('/add-recipe-form')
+        },
+
+        goToSearchPage () {
+          router.push('/search-recipe-page')
         }
     },
 

@@ -2,7 +2,7 @@
     <div class="AddRecipeCard" @click="goToAddForm">
        <div class="AddRecipeButton">ADD <img :src="require(`../assets/Plus.svg`)" class="AddIcon" /></div>
     </div>
-</template>
+</template> 
 
 <script>
 export default {
