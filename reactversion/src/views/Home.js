@@ -21,12 +21,16 @@ const Home = () => {
       history.push("/addrecipeform");
   }
 
+  function goToSearchPage () {
+    history.push("/searchrecipepage");
+  }
+
   return (
     < HomeContainer>
       <Header/>
       <div style={{display: "flex", flexDirection: "row", justifyContent: 'center'}}>
         <AddRecipe clickHandler={goToAddForm}/>
-        <SearchRecipe/>
+        <SearchRecipe clickHandler={goToSearchPage}/>
       </div>
 
       <div style={{display: "flex", flexDirection: "column", justifyContent: 'center', alignItems: 'center'}}>

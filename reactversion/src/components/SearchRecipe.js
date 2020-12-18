@@ -1,14 +1,13 @@
 import React from 'react';
 import {SearchRecipeCard, SearchRecipeButton, SearchIcon} from '../styles/SearchRecipeStyle'
 
-class SearchRecipe extends React.Component {
-  render() {
+const SearchRecipe = ({clickHandler}) =>  { 
+  
     return (
-      <SearchRecipeCard>
+      <SearchRecipeCard onClick={clickHandler}>
           <SearchRecipeButton>SEARCH <SearchIcon/> </SearchRecipeButton>
       </SearchRecipeCard>
     );
-  }
 }
 
 
