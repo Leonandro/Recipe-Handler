@@ -85,7 +85,7 @@
         width: 10%;
         margin-left: 2%;
         margin-bottom: 10%;
-        padding-top: 0.5%;
+        padding-top: 0.1%;
         cursor: pointer;
     }
 

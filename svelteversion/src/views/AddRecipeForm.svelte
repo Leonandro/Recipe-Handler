@@ -64,12 +64,12 @@
 
 <div>
       
-    <div id="container">
+    <div id="container"> 
         <p id="formTitle">Please, input your recipe</p>
         <form  class="form__body" on:submit|preventDefault={submit}>
             <div class="form__group">
                 <label class="form__label">Type the name of your recipe</label>
-                <input class="form__input" bind:value={recipeToBeAdded.name} on:input={validateName}>
+                <input class="form__input" placeholder="Ex: 10 Thousand Labels Cake" bind:value={recipeToBeAdded.name} on:input={validateName}>
                     <div class="error">
                         {errors.name}
                     </div>
@@ -77,13 +77,13 @@
 
             <div class="form__group">
                 <label class="form__label">Type the amount of the carbohydrates</label>
-                <input class="form__input" bind:value={recipeToBeAdded.carbohydrates}>
+                <input class="form__input" placeholder="Ex: 10000" bind:value={recipeToBeAdded.carbohydrates}>
                 
             </div>
 
             <div class="form__group">
                 <label class="form__label">Type how to do this recipe</label>
-                <input class="form__input" bind:value={recipeToBeAdded.recipe} on:input={validateRecipe}>
+                <input class="form__input" placeholder="Ex: Boil 350ml of water, put the lamen inside, wait 3 minutes then, season." bind:value={recipeToBeAdded.recipe} on:input={validateRecipe}>
                     <div class="error">
                         {errors.recipe}
                     </div>

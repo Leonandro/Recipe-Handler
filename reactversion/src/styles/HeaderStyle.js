@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const CustomHeader = styled.header`
+    font-family: Avenir, Helvetica, Arial, sans-serif;
     display: flex;
     flex-direction: column;
     align-items: center;
