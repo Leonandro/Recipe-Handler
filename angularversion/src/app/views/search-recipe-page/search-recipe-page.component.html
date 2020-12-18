@@ -8,7 +8,12 @@
                         [value]="recipeName" 
                         (input)="recipeName = $event.target.value"
                         /> 
-                <button class="PageButton" (click)="filterRecipes(recipeName)" >  </button>
+                <button class="PageButton" (click)="filterRecipes(recipeName)" > 
+                    <img
+                        src="/assets/icons/Search-very-small.svg"
+                        class="Search-icon"
+                    />   
+                </button>
             </div>
             <h2 class="answersLabel">Below, we show all the recipes that matches the searched name</h2>
         </div>
