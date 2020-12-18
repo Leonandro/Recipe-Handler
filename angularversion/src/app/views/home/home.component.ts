@@ -18,6 +18,12 @@ export class HomeComponent implements OnInit {
     this.router.navigate(['/add-recipe-form'])
   }
 
+  
+
+  goToSearch() {
+    this.router.navigate(['/search-recipe-page'])
+  }
+
 
   ngOnInit(): void {
     this.recipeService.renderData();

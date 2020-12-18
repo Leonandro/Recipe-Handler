@@ -2,7 +2,7 @@
     <app-header></app-header>
     <div id="principalCard">
       <div id="AddRecipeCard" (click)="goToAddForm()"><app-add-recipe-button></app-add-recipe-button></div>
-      <div id="SearchRecipeCard"><app-search-recipe-button></app-search-recipe-button></div>
+      <div id="SearchRecipeCard" (click)="goToSearch()"><app-search-recipe-button></app-search-recipe-button></div>
     </div>
     <div id="ListContent">
       <h2>Below, we show all the recipes we found in your kitchen.</h2>

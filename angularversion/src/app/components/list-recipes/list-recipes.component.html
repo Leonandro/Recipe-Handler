@@ -1,3 +1,5 @@
+
+
 <style>
     #CustomCard {
         border: 2px solid;
@@ -9,10 +11,14 @@
         text-align: center;
         cursor: pointer; 
     }
+
+    #CustomCard:hover {
+        box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+    }
 </style>
 
 <div *ngFor="let item of Data">
-   <div id="CustomCard">
+   <div id="CustomCard" (click)="goToSearch(item.name)">
        {{item.name}}
    </div>
 </div>
